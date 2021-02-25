@@ -3,8 +3,8 @@ import { getCustomRepository } from 'typeorm'
 import { UsersRepository } from '../repositories/UserRepository'
 
 class UserController {
-    async create(req: Request, res: Response) {
-        const {name, email} = req.body
+    async create(request: Request, response: Response) {
+        const {name, email} = request.body
         
         const usersRepository = getCustomRepository(UsersRepository)
         
@@ -14,7 +14,7 @@ class UserController {
         })
 
         if(userAlreadyExists){
-            return res.status(400).json({
+            return response.status(400).json({
                 error: "User Already Exist"
             })
         }
@@ -26,7 +26,7 @@ class UserController {
 
         await usersRepository.save(user)
 
-        return res.json(user)
+        return response.status(201).json(user)
     }
 }
 
