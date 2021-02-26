@@ -1,16 +1,19 @@
 import { Column, CreateDateColumn, Entity, JoinTable, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from 'uuid'
 
-@Entity("survery")
-class Survey {
+@Entity("surveys_users")
+class SurveyUser {
     @PrimaryColumn()
     readonly id: string;
 
     @Column()
-    title: string;
+    user_id: string;
 
     @Column()
-    desciption: string;
+    survey_id: string;
+
+    @Column()
+    value: Number
 
     @CreateDateColumn()
     created_at: Date;
@@ -22,4 +25,4 @@ class Survey {
     }
 }
 
-export { Survey }
+export { SurveyUser }

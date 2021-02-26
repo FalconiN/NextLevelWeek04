@@ -9,8 +9,8 @@ const surveysController = new SurveysController()
 
 router.post("/users", userController.create)
 
-router.post("/surverys", surveysController.create)
-router.get("/surverys", surveysController.show)
+router.post("/surveys", surveysController.create)
+router.get("/surveys", surveysController.show)
 
 
 export { router }
